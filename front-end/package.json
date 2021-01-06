@@ -1,5 +1,5 @@
 {
-  "name": "react-webpack",
+  "name": "front-end-login",
   "version": "1.0.0",
   "description": "Configuração padrão para desenvolver aplicações em React",
   "private": true,
@@ -27,9 +27,11 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "history": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-hot-loader": "^4.13.0"
+    "react-hot-loader": "^4.13.0",
+    "react-router-dom": "^5.2.0"
   }
 }

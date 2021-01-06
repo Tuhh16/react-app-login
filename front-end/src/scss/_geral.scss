@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: $primary-color;
+    font-family: $OpenSans-Regular;
+    background: #f2f2f2;
+}
+
+.container{
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Inicio do app */
+
+.form, .users{
+    display: block;
+    margin: 50px auto 0 auto;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 30px 55px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    h2{
+        text-align: center;
+    }
+    form{
+        padding: 30px 0;
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"]{
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            width: 90%;
+            border: none;
+            border-bottom: 2px solid $primary-color;
+            &:focus{
+                outline: none !important;
+            }
+        }
+
+        input[type="submit"]{
+            color: #fff;
+            background: $secondary-color;
+            cursor: pointer;
+            border-bottom: 2px solid $primary-color;
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+    }
+    ul{
+        list-style: none;
+        margin: 40px 0 0 0;
+        li{
+            margin: 10px 0;
+            p{
+                padding: 5px 0;
+            }
+        }
+    }
+}
