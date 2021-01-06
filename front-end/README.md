@@ -1,6 +1,6 @@
 # React App Site
 
-Uma aplicação que possue formulario de contato, autenticação e cadastro de itens no banco de dados.
+Uma aplicação que possue formulario de autenticação simples usando context API
 
 ## Instalação
 
