@@ -1,15 +1,18 @@
-import { hot } from 'react-hot-loader/root';
-import React from 'react';
-import Login from './components/Login'
-import Usuarios from './components/Usuarios'
+import { hot } from 'react-hot-loader/root'
+import React from 'react'
+import { Router } from 'react-router-dom'
 
-const App = () => (
-  <div className="container">
-    <div className="row">
-      {<Login/>}
-      {/*<Usuarios/>*/}
-    </div>
-  </div>
-)
+import Routes from './routes'
+import history from './history'
+
+import { AuthProvider } from './context/AuthContext'
+
+const App = () => {
+  return (
+    <AuthProvider>
+        <Routes />
+    </AuthProvider>
+  )
+}
 
 export default hot(App);

@@ -1,6 +1,6 @@
 # React App Site
 
-Uma aplicação que possue formulario de autenticação simples usando context API
+Uma aplicação que possui formulário de autenticação simples usando Context API
 
 ## Instalação
 

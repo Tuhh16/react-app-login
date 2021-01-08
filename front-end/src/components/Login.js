@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { Context } from '../context/AuthContext'
 
 const Login = () => {
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        console.log('foi');
-    }
+    const { authenticated, handleLogin } = useContext(Context)
 
     return (
         <div className="form">
