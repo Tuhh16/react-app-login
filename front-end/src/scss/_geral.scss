@@ -7,7 +7,103 @@
 body {
     color: $primary-color;
     font-family: $OpenSans-Regular;
-    background: #f2f2f2;
+    &.light{
+        background: $white-color;
+        .form, .users{
+            background: $white-color;
+            box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+            -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+            -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+            h2{
+                color: $primary-color;
+            }
+            input[type="text"],
+            input[type="password"],
+            input[type="submit"]{
+                color: $primary-color;
+                background: $white-color;
+                border-bottom: 2px solid $primary-color;
+            }
+            input[type="submit"], button[type="submit"] {
+                border-bottom: 2px solid $primary-color;
+                &:disabled{
+                    background: #7c7a7a;
+                    cursor: not-allowed;
+                }
+            }
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $primary-color;
+                opacity: 1; /* Firefox */
+            }
+            
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $primary-color;
+            }
+            
+            ::-ms-input-placeholder { /* Microsoft Edge */
+                color: $primary-color;
+            }
+        }
+        ul{
+            li{
+                p{
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+    &.dark{
+        background: $primary-color;
+        .form, .users{
+            background: $primary-color;
+            box-shadow: 0 5px 10px 0px rgba(255, 255, 255, 0.1);
+            -moz-box-shadow: 0 5px 10px 0px rgba(255, 255, 255, 0.1);
+            -webkit-box-shadow: 0 5px 10px 0px rgba(255, 255, 255, 0.1);
+            -o-box-shadow: 0 5px 10px 0px rgba(255, 255, 255, 0.1);
+            -ms-box-shadow: 0 5px 10px 0px rgba(255, 255, 255, 0.1);
+            h2{
+                color: $white-color;
+            }
+            input[type="text"],
+            input[type="password"],
+            input[type="submit"]{
+                color: $white-color;
+                background: $primary-color;
+                border-bottom: 2px solid $white-color;
+            }
+            input[type="submit"], button[type="submit"] {
+                border-bottom: 2px solid $white-color;
+                &:disabled{
+                    background: #7c7a7a;
+                    cursor: not-allowed;
+                }
+            }
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $white-color;
+                opacity: 1; /* Firefox */
+            }
+            
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $white-color;
+            }
+            
+            ::-ms-input-placeholder { /* Microsoft Edge */
+                color: $white-color;
+            }
+        }
+        button {
+            border-bottom: 2px solid $white-color;
+        }
+        ul{
+            li{
+                p{
+                    color: $white-color;
+                }
+            }
+        }
+    }
 }
 
 .container{
@@ -17,47 +113,90 @@ body {
 
 /* Inicio do app */
 
+button{
+    padding: 10px 20px;
+    display: block;
+    margin: 0 0 0 auto;
+    width: 200px;
+    font-size: 14px;
+    cursor: pointer;
+    &.light{
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        background: $white-color;
+    }
+    &.dark{
+        border: 1px solid $white-color;
+        color: $white-color;
+        background: $primary-color;
+    }
+}
+
 .form, .users{
     display: block;
     margin: 50px auto 0 auto;
     max-width: 400px;
-    background: #fff;
     border-radius: 10px;
     overflow: hidden;
     padding: 30px 55px;
-    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     h2{
         text-align: center;
     }
+    .error{
+        color: $alert-color;
+        display: block;
+        text-align: center;
+        margin: 10px 15px 0 0;
+        font-size: 14px;
+    }
     form{
-        padding: 30px 0;
+        padding: 0 0 30px 0;
+        .error{
+            color: $alert-color;
+            display: block;
+            margin: 0 15px;
+            font-size: 14px;
+        }
         input[type="text"],
         input[type="password"],
         input[type="submit"]{
             display: block;
-            margin: 20px auto;
+            margin: 20px auto 10px auto;
             padding: 10px;
             width: 90%;
             border: none;
-            border-bottom: 2px solid $primary-color;
             &:focus{
-                outline: none !important;
+                outline: none!important;
             }
         }
-
-        input[type="submit"]{
-            color: #fff;
+        input[type="submit"], button[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            color: $white-color;
+            display: block;
+            margin: 10px auto 0 auto;
+            width: 50%;
             background: $secondary-color;
             cursor: pointer;
             border-bottom: 2px solid $primary-color;
             &:hover{
                 opacity: 0.8;
             }
+            &:disabled{
+                background: #CCCCCC;
+                cursor: not-allowed;
+            }
         }
+    }
+    button {
+        padding: 10px 20px;
+        border: none;
+        color: $white-color;
+        display: block;
+        margin: 10px auto 0 auto;
+        width: 50%;
+        background: $secondary-color;
+        cursor: pointer;
     }
     ul{
         list-style: none;

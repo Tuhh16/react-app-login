@@ -5,13 +5,24 @@ import { Router } from 'react-router-dom'
 import Routes from './routes'
 import history from './history'
 
+
+import { ThemeProvider } from './context/ThemeContext'
+import Container from './container/'
 import { AuthProvider } from './context/AuthContext'
 
+
 const App = () => {
+
   return (
-    <AuthProvider>
-        <Routes />
-    </AuthProvider>
+    <ThemeProvider>
+        <Container>
+          <AuthProvider>
+              <Router history={history}>
+                <Routes />
+              </Router>
+          </AuthProvider>
+        </Container>
+    </ThemeProvider>
   )
 }
 

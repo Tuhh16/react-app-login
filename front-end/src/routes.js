@@ -24,6 +24,9 @@ const CustomRoute = ({ isPrivate, ...rest }) => {
 const Routes = () => {
     return (
         <Switch>
+            <CustomRoute exact path="/" >
+                <Redirect to="/login" />
+            </CustomRoute>
             <CustomRoute exact path="/login" component={Login} />
             <CustomRoute isPrivate exact path="/users" component={Users} />
         </Switch>

@@ -5,6 +5,7 @@ import history from '../../history'
 
 const useAuth = () => {
     const [authenticated, SetAuthenticated] = useState(false)
+    const [errobackend, SetErrobackend] = useState('')
     const [loading, SetLoading] = useState(true)
 
     useEffect(() => {
@@ -18,24 +19,36 @@ const useAuth = () => {
         SetLoading(false)
     }, [])
     
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        const { data: {token} } = await api.post('/authenticate')
+    const handleLogin = async (values) => {
+        
+        const { email, password } = values
+
+        try {
+            
+            const { data: {token} } = await api.post('/authenticate', {email, password})
     
-        localStorage.setItem('token', JSON.stringify(token))
-        api.defaults.headers.Authorization = `Bearer ${token}`
-        SetAuthenticated(true)
-        history.push('/users')
+            localStorage.setItem('token', JSON.stringify(token))
+            api.defaults.headers.Authorization = `Bearer ${token}`
+            SetAuthenticated(true)
+            SetErrobackend('')
+            history.push('/users')
+        
+        } catch (err) {
+
+            return SetErrobackend(err.response.data)
+        
+        }
+        
     }
     
     const handleLogout = () => {
         localStorage.removeItem('token')
         api.defaults.headers.Authorization = undefined
-        SetAuthenticated(true)
+        SetAuthenticated(false)
         history.push('/login')
     }
 
-    return { authenticated, loading, handleLogin, handleLogout }
+    return { authenticated, loading, errobackend, handleLogin, handleLogout }
 }
 
 export default useAuth

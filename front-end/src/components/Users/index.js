@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 
-import api from '../api'
-import { Context } from '../context/AuthContext'
+import api from '../../api'
+import { Context } from '../../context/AuthContext'
 
 const Users = () => {
     const { handleLogout } = useContext(Context)

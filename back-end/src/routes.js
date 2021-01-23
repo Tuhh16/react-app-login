@@ -1,22 +1,24 @@
-const express = require('express');
-const jwt = require('jsonwebtoken');
+const express = require('express')
+const jwt = require('jsonwebtoken')
+const authMiddleware = require('./auth')
+const router = express.Router()
+const { db } = require('./database/dbconfig')
 
-const authMiddleware = require('./auth');
+router.post('/authenticate', async (req, res) => {
+    const { email, password } = req.body
 
-const router = express.Router();
+    const result = await db.get('users')
+      .find({ email: email, senha: password })
+    .write()
 
-router.post('/authenticate', (req, res) => {
-  const user = {
-    id: 1,
-    name: 'Mateus Silva',
-    company: 'DevAcademy',
-    website: 'https://devacademy.com.br',
-  };
-
-  return res.json({
-    user,
-    token: jwt.sign(user, 'PRIVATEKEY'),
-  });
+  if(result !== undefined){
+      return res.status(200).json({
+        result,
+        token: jwt.sign(result, 'PRIVATEKEY'),
+      });
+    }else{
+      return res.status(404).json('Usuário ou senha inválido')
+    }
 });
 
 /**

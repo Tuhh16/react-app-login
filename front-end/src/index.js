@@ -1,15 +1,11 @@
 import './style.scss'
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { Router } from 'react-router-dom'
-import history from './history'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
 
 const renderApp = (NextApp) => {
     ReactDOM.render(
-        <Router history={history}>
-            <App />
-        </Router>, 
+        <App />, 
         document.getElementById('app')
     );
 }
